@@ -69,8 +69,7 @@ public class ChaseAgent : Agent
         {
             EndEpisode();
         }
-
-        AddReward(-1f / MaxStep);
+        AddReward(-0.001f);
     }
 
     public void FixedUpdate() {
