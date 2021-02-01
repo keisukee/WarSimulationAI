@@ -69,7 +69,7 @@ public class ChaseAgent : Agent
         {
             EndEpisode();
         }
-        AddReward(-0.001f);
+        AddReward(-1f / MaxStep);
     }
 
     public void FixedUpdate() {
@@ -106,7 +106,7 @@ public class ChaseAgent : Agent
     {
         if (collision.gameObject.CompareTag("target"))
         {
-            AddReward(1f);
+            AddReward(2f);
             EndEpisode();
         }
     }
