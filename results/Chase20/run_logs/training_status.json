@@ -1,0 +1,24 @@
+{
+    "Chase": {
+        "checkpoints": [
+            {
+                "steps": 182936,
+                "file_path": "results/Chase20/Chase/Chase-182936.onnx",
+                "reward": null,
+                "creation_time": 1612097699.561248
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 182936,
+            "file_path": "results/Chase20/Chase.onnx",
+            "reward": null,
+            "creation_time": 1612097699.561248
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.1",
+        "tensorflow_version": "2.3.0"
+    }
+}

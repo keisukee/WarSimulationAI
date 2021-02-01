@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1612089889",
+        "python_version": "3.7.3 (default, Jun 13 2020, 18:11:17) \n[Clang 11.0.3 (clang-1103.0.32.62)]",
+        "command_line_arguments": "/Users/keisuke/.pyenv/versions/3.7.3/bin/mlagents-learn config/chase_config.yaml --run-id=Chase17",
+        "mlagents_version": "0.23.0",
+        "mlagents_envs_version": "0.23.0",
+        "communication_protocol_version": "1.3.0",
+        "pytorch_version": "1.7.1",
+        "numpy_version": "1.18.5",
+        "end_time_seconds": "1612089897"
+    },
+    "total": 7.898307565,
+    "count": 1,
+    "self": 0.006779968000000025,
+    "children": {
+        "run_training.setup": {
+            "total": 0.013867941999999633,
+            "count": 1,
+            "self": 0.013867941999999633
+        },
+        "TrainerController.start_learning": {
+            "total": 7.877659655,
+            "count": 1,
+            "self": 0.0002414359999995952,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 7.876748305,
+                    "count": 1,
+                    "self": 7.876748305
+                },
+                "TrainerController._save_models": {
+                    "total": 0.0006699140000012704,
+                    "count": 1,
+                    "self": 0.0006699140000012704
+                }
+            }
+        }
+    }
+}
