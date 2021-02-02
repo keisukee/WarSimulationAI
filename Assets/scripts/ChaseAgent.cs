@@ -53,8 +53,8 @@ public class ChaseAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         var localVelocity = transform.InverseTransformDirection(m_AgentRb.velocity);
-        sensor.AddObservation(localVelocity.x);
-        sensor.AddObservation(localVelocity.z);
+        // sensor.AddObservation(localVelocity.x);
+        // sensor.AddObservation(localVelocity.z);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)

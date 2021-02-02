@@ -1,0 +1,30 @@
+{
+    "Chase": {
+        "checkpoints": [
+            {
+                "steps": 499980,
+                "file_path": "results/Chase30/Chase/Chase-499980.onnx",
+                "reward": 1.8741333434979122,
+                "creation_time": 1612191098.6008341
+            },
+            {
+                "steps": 500396,
+                "file_path": "results/Chase30/Chase/Chase-500396.onnx",
+                "reward": 1.8523466924826304,
+                "creation_time": 1612191098.692804
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500396,
+            "file_path": "results/Chase30/Chase.onnx",
+            "reward": 1.8523466924826304,
+            "creation_time": 1612191098.692804
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.1",
+        "tensorflow_version": "2.3.0"
+    }
+}
