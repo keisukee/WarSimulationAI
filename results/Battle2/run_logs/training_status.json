@@ -1,0 +1,24 @@
+{
+    "Battle": {
+        "checkpoints": [
+            {
+                "steps": 25600,
+                "file_path": "results/Battle2/Battle/Battle-25600.onnx",
+                "reward": null,
+                "creation_time": 1612359971.37218
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 25600,
+            "file_path": "results/Battle2/Battle.onnx",
+            "reward": null,
+            "creation_time": 1612359971.37218
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.1",
+        "tensorflow_version": "2.3.0"
+    }
+}

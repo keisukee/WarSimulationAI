@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a2793a51bda4c729de18cc0e36f71b, type: 3}
@@ -418,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 2.6, y: 86.5, z: 7.9}
+  m_LocalPosition: {x: 2.6, y: 108, z: 7.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
@@ -586,7 +586,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a2793a51bda4c729de18cc0e36f71b, type: 3}
@@ -689,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
@@ -734,7 +734,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a2793a51bda4c729de18cc0e36f71b, type: 3}
@@ -907,7 +907,7 @@ Transform:
   m_GameObject: {fileID: 2008210756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 280609025}
   m_RootOrder: 0
@@ -927,7 +927,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
@@ -982,7 +982,7 @@ PrefabInstance:
     - target: {fileID: 4114218785549798398, guid: 60a2793a51bda4c729de18cc0e36f71b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a2793a51bda4c729de18cc0e36f71b, type: 3}
@@ -995,8 +995,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4452131679999245489, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
         type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4452131679999245489, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
+        type: 3}
       propertyPath: m_RayLength
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -4452131679999245489, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[0]
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -4452131679999245489, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[1]
+      value: agent
       objectReference: {fileID: 0}
     - target: {fileID: -2684537165780901493, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
         type: 3}
