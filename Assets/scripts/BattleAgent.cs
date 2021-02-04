@@ -14,10 +14,10 @@ public class BattleAgent : Agent
     public float wallThickness = 0f;
     bool m_Shoot;
     bool m_Frozen;
+    float m_ElapsedLaserIntervalTime = 1f;
     float m_FrozenTime;
     float m_EffectTime;
     float m_LaserLength = 1.0f;
-
     public Material normalMaterial;
     public Material frozenMaterial;
     public GameObject myLaser;
@@ -62,6 +62,7 @@ public class BattleAgent : Agent
         sensor.AddObservation(localVelocity.z);
         sensor.AddObservation(m_Frozen);
         sensor.AddObservation(m_Shoot);
+        sensor.AddObservation(m_ElapsedLaserIntervalTime);
     }
 
     public Color32 ToColor(int hexVal)
@@ -116,7 +117,7 @@ public class BattleAgent : Agent
             rotateDir = -transform.up * rotate;
 
             var shootCommand = (int)discreteActions[0] > 0;
-            if (shootCommand)
+            if (shootCommand && m_ElapsedLaserIntervalTime >= 1f)
             {
                 Debug.Log("will shoot");
                 m_Shoot = true;
@@ -134,23 +135,38 @@ public class BattleAgent : Agent
 
         if (m_Shoot)
         {
-            var myTransform = transform;
-            myLaser.transform.localScale = new Vector3(1f, 1f, m_LaserLength);
-            var rayDir = 20.0f * myTransform.forward;
-            Debug.DrawRay(myTransform.position, rayDir, Color.red, 0f, true);
-            RaycastHit hit;
-            if (Physics.SphereCast(transform.position, 2f, rayDir, out hit, 20.0f))
-            {
-                if (hit.collider.gameObject.CompareTag("agent"))
-                {
-                    AddReward(1f);
-                    hit.collider.gameObject.GetComponent<BattleAgent>().Freeze();
-                }
-            }
+            Shoot();
         }
         else
         {
             myLaser.transform.localScale = new Vector3(0f, 0f, 0f);
+        }
+    }
+
+    private void FixedUpdate() {
+        if (m_Shoot) {
+            m_ElapsedLaserIntervalTime -= 1f;
+        } else {
+            if (m_ElapsedLaserIntervalTime < 1f) {
+                m_ElapsedLaserIntervalTime += Time.deltaTime;
+            }
+        }
+    }
+
+    void Shoot()
+    {
+        var myTransform = transform;
+        myLaser.transform.localScale = new Vector3(1f, 1f, m_LaserLength);
+        var rayDir = 20.0f * myTransform.forward;
+        Debug.DrawRay(myTransform.position, rayDir, Color.red, 0f, true);
+        RaycastHit hit;
+        if (Physics.SphereCast(transform.position, 2f, rayDir, out hit, 20.0f))
+        {
+            if (hit.collider.gameObject.CompareTag("agent"))
+            {
+                AddReward(1f);
+                hit.collider.gameObject.GetComponent<BattleAgent>().Freeze();
+            }
         }
     }
 
