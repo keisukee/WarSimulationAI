@@ -38,21 +38,8 @@ public class BattleAgent : Agent
     }
 
     public override void OnEpisodeBegin() {
-        Unfreeze();
         m_Shoot = false;
-        m_AgentRb.velocity = Vector3.zero;
-        myLaser.transform.localScale = new Vector3(0f, 0f, 0f);
-
-        var randomPosX = Random.Range(-areaBounds.extents.x + wallThickness, areaBounds.extents.x - wallThickness);
-        var randomPosZ = Random.Range(-areaBounds.extents.z + wallThickness, areaBounds.extents.z - wallThickness);
-        var randomSpawnPos = Vector3.zero;
-        var relativePosX = area.transform.position.x;
-        var relativePosZ = area.transform.position.z;
-        randomSpawnPos = new Vector3(randomPosX, 0.5f, randomPosZ);
-        transform.position = new Vector3(relativePosX + randomPosX, 0.5f, relativePosZ + randomPosZ);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
-
-        SetResetParameters();
+        Respawn();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -84,7 +71,7 @@ public class BattleAgent : Agent
     {
         m_Shoot = false;
 
-        if (Time.time > m_FrozenTime + 4f && m_Frozen)
+        if (Time.time > m_FrozenTime + 1f && m_Frozen)
         {
             Unfreeze();
         }
@@ -174,6 +161,7 @@ public class BattleAgent : Agent
     {
         gameObject.tag = "frozenAgent";
         AddReward(-1f);
+        Respawn();
         m_Frozen = true;
         m_FrozenTime = Time.time;
         gameObject.GetComponentInChildren<Renderer>().material = frozenMaterial;
@@ -210,6 +198,23 @@ public class BattleAgent : Agent
         }
         var discreteActionsOut = actionsOut.DiscreteActions;
         discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
+    }
+
+    void Respawn() {
+        Unfreeze();
+        m_AgentRb.velocity = Vector3.zero;
+        myLaser.transform.localScale = new Vector3(0f, 0f, 0f);
+
+        var randomPosX = Random.Range(-areaBounds.extents.x + wallThickness, areaBounds.extents.x - wallThickness);
+        var randomPosZ = Random.Range(-areaBounds.extents.z + wallThickness, areaBounds.extents.z - wallThickness);
+        var randomSpawnPos = Vector3.zero;
+        var relativePosX = area.transform.position.x;
+        var relativePosZ = area.transform.position.z;
+        randomSpawnPos = new Vector3(randomPosX, 0.5f, randomPosZ);
+        transform.position = new Vector3(relativePosX + randomPosX, 0.5f, relativePosZ + randomPosZ);
+        transform.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
+
+        SetResetParameters();
     }
 
     public void SetLaserLengths()

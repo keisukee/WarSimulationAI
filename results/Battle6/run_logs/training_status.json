@@ -1,0 +1,30 @@
+{
+    "Battle": {
+        "checkpoints": [
+            {
+                "steps": 499968,
+                "file_path": "results/Battle6/Battle/Battle-499968.onnx",
+                "reward": null,
+                "creation_time": 1612450631.346567
+            },
+            {
+                "steps": 501760,
+                "file_path": "results/Battle6/Battle/Battle-501760.onnx",
+                "reward": null,
+                "creation_time": 1612450631.4905448
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 501760,
+            "file_path": "results/Battle6/Battle.onnx",
+            "reward": null,
+            "creation_time": 1612450631.4905448
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.1",
+        "tensorflow_version": "2.3.0"
+    }
+}
