@@ -388,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 4058332797706981138, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
         type: 3}
       propertyPath: m_BehaviorName
-      value: My Behavior
+      value: Battle
       objectReference: {fileID: 0}
     - target: {fileID: 4058332797706981138, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
         type: 3}
@@ -1595,7 +1595,7 @@ PrefabInstance:
     - target: {fileID: 4058332797706981138, guid: 95b55bc9037a84944b9f7336ee0cdd7a,
         type: 3}
       propertyPath: m_BehaviorName
-      value: My Behavior
+      value: Battle
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
