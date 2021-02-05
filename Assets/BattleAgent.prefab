@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3726450125111490099}
   - component: {fileID: 4058332797706981138}
   - component: {fileID: -2684537165780901493}
-  - component: {fileID: -1992326449506668196}
   - component: {fileID: -4452131679999245489}
   - component: {fileID: -5871458020818994712}
   m_Layer: 0
@@ -128,12 +127,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
+    VectorObservationSize: 5
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
+      m_NumContinuousActions: 3
+      BranchSizes: 02000000
+    VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -161,6 +160,9 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  team: 0
+  teamTag: 
+  opponentTag: 
   area: {fileID: 0}
   areaBounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -171,36 +173,7 @@ MonoBehaviour:
   myLaser: {fileID: 0}
   turnSpeed: 300
   moveSpeed: 2
---- !u!114 &-1992326449506668196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3726450125111490109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BrainParameters:
-    VectorObservationSize: 1
-    NumStackedVectorObservations: 1
-    m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
-    VectorActionDescriptions: []
-    VectorActionSpaceType: 0
-    hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: Battle
-  TeamId: 0
-  m_UseChildSensors: 1
-  m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_BattleAgentManager: {fileID: 0}
 --- !u!114 &-4452131679999245489
 MonoBehaviour:
   m_ObjectHideFlags: 0

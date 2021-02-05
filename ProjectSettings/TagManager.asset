@@ -12,6 +12,9 @@ TagManager:
   - agent
   - wall
   - frozenAgent
+  - laser
+  - redAgent
+  - greenAgent
   layers:
   - Default
   - TransparentFX

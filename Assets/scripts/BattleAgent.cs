@@ -7,8 +7,17 @@ using Random = UnityEngine.Random;
 
 public class BattleAgent : Agent
 {
+    public enum Team
+    {
+        Green = 0,
+        Red = 1
+    }
+
     Rigidbody m_AgentRb;
 
+    public Team team;
+    public string teamTag;
+    public string opponentTag;
     public GameObject area;
     public Bounds areaBounds;
     public float wallThickness = 0f;
@@ -21,6 +30,7 @@ public class BattleAgent : Agent
     public Material normalMaterial;
     public Material frozenMaterial;
     public GameObject myLaser;
+    int m_PlayerIndex;
 
     // Speed of agent rotation.
     public float turnSpeed = 300;
@@ -28,13 +38,42 @@ public class BattleAgent : Agent
     public float moveSpeed = 2;
 
     EnvironmentParameters m_ResetParams;
+    public BattleAgentManager m_BattleAgentManager;
+    // BehaviorParameters m_BehaviorParameters;
 
-    void Start() {
+    public override void Initialize()
+    {
+        // m_BehaviorParameters = gameObject.GetComponent<BehaviorParameters>();
+        // if (m_BehaviorParameters.TeamId == (int)Team.Green)
+        // {
+        //     team = Team.Green;
+        // }
+        // else
+        // {
+        //     team = Team.Red;
+        // }
+
         m_AgentRb = GetComponent<Rigidbody>();
         areaBounds = area.GetComponent<Collider>().bounds;
-        Debug.Log("areaBounds " + areaBounds);
-        Debug.Log("areaBounds.min " + areaBounds.min);
-        Debug.Log("areaBounds.max " + areaBounds.max);
+        m_BattleAgentManager.CountAgent();
+
+        var playerState = new PlayerState
+        {
+            agentRb = m_AgentRb,
+            startingPos = transform.position,
+            agentScript = this,
+        };
+
+        m_BattleAgentManager.playerStates.Add(playerState);
+        m_PlayerIndex = m_BattleAgentManager.playerStates.IndexOf(playerState);
+        playerState.playerIndex = m_PlayerIndex;
+    }
+
+    void Start() {
+        // Debug.Log("start is called");
+        // Debug.Log("areaBounds " + areaBounds);
+        // Debug.Log("areaBounds.min " + areaBounds.min);
+        // Debug.Log("areaBounds.max " + areaBounds.max);
     }
 
     public override void OnEpisodeBegin() {
@@ -71,10 +110,10 @@ public class BattleAgent : Agent
     {
         m_Shoot = false;
 
-        if (Time.time > m_FrozenTime + 1f && m_Frozen)
-        {
-            Unfreeze();
-        }
+        // if (Time.time > m_FrozenTime + 1f && m_Frozen)
+        // {
+        //     Unfreeze();
+        // }
         // if (Time.time > m_EffectTime + 0.5f)
         // {
         //     if (m_Poisoned)
@@ -147,9 +186,10 @@ public class BattleAgent : Agent
         var rayDir = 20.0f * myTransform.forward;
         Debug.DrawRay(myTransform.position, rayDir, Color.red, 0f, true);
         RaycastHit hit;
+
         if (Physics.SphereCast(transform.position, 2f, rayDir, out hit, 20.0f))
         {
-            if (hit.collider.gameObject.CompareTag("agent"))
+            if (hit.collider.gameObject.CompareTag(opponentTag))
             {
                 AddReward(1f);
                 hit.collider.gameObject.GetComponent<BattleAgent>().Freeze();
@@ -161,16 +201,16 @@ public class BattleAgent : Agent
     {
         gameObject.tag = "frozenAgent";
         AddReward(-1f);
-        Respawn();
         m_Frozen = true;
         m_FrozenTime = Time.time;
         gameObject.GetComponentInChildren<Renderer>().material = frozenMaterial;
+        m_BattleAgentManager.AgentDie(this);
     }
 
     void Unfreeze()
     {
         m_Frozen = false;
-        gameObject.tag = "agent";
+        gameObject.tag = teamTag;
         gameObject.GetComponentInChildren<Renderer>().material = normalMaterial;
     }
 

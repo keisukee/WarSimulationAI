@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\scripts\BattleAgent.cs" />
+     <Compile Include="Assets\scripts\BattleAgentManager.cs" />
      <Compile Include="Assets\scripts\BattleArea.cs" />
      <Compile Include="Assets\scripts\BattleSettings.cs" />
      <Compile Include="Assets\scripts\Bullet.cs" />
